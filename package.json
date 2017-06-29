@@ -6,6 +6,17 @@
   "engines": {
     "node": "6.11.0"
   },
+  "jest": {
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|gif|png|mp4|mkv|avi|webm|swf|wav|mid)$": "jest-static-stubs/$1"
+    },
+    "setupFiles": [
+      "./app/spec/setup.js"
+    ]
+  },
   "scripts": {
     "build": "node_modules/.bin/webpack",
     "dev": "NODE_ENV=development node_modules/.bin/webpack-dev-server --progress",
@@ -76,14 +87,19 @@
     "webpack-dev-server": "^2.4.5"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.9.0",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
+    "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
-    "husky": "^0.13.4"
+    "husky": "^0.13.4",
+    "jest-static-stubs": "^0.0.1",
+    "react-test-renderer": "^15.6.1",
+    "redux-mock-store": "^1.2.3"
   }
 }
