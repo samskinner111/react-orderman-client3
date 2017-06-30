@@ -8,7 +8,7 @@
  *
  * propTypes = {
  *   ordersIndex: ...,
- *   performOrdersIndexSearch: PropTypes.func.isRequired,
+ *   performOrdersIndexAction: PropTypes.func.isRequired,
  * };
  *
  * @exports OrdersIndexContainer
@@ -23,13 +23,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+
 // Component imports
 import AuthenticatedLayout from '../../common/layouts/AuthenticatedLayout';
 import OrdersTable from '../../common/tables/OrdersTable';
 import SearchBar from '../../common/forms/SearchBar';
 
+
 // Actions imports
 import { performOrdersIndexAction } from './actions/ordersIndexActions';
+
 
 // Custom imports
 import {
@@ -37,20 +40,28 @@ import {
 } from '../../../customPropTypes';
 
 
-class OrdersIndexContainer extends Component {
+/**
+ * @class OrdersIndexContainer
+ * @description Container for retrieving Orders
+ */
+export class OrdersIndexContainer extends Component {
   constructor(props) {
     super(props);
+
+
     /**
      * @function findOrders
-     * @description Retrieves Orders with potential searchTerm
+     * @description Retrieve orders
      * @param page
      */
     this.findOrders = (page = 1) => {
-      this.props.performOrdersIndexSearch(page, this.state.searchTerm);
+      this.props.performOrdersIndexAction(page, this.state.searchTerm);
     };
+
+
     /**
      * @function handleSearch
-     * @description Search handler
+     * @description Search handler for SearchBar
      * @param searchTerm
      */
     this.handleSearch = (searchTerm) => {
@@ -61,13 +72,16 @@ class OrdersIndexContainer extends Component {
     };
   }
 
+
   state = {
     searchTerm: null,
   };
 
+
   componentWillMount() {
     this.findOrders(1);
   }
+
 
   render() {
     const {
@@ -90,14 +104,6 @@ class OrdersIndexContainer extends Component {
                 handleSearch={this.handleSearch}
                 disabled={false}
                 placeholder="Search Orders"
-              />
-            </div>
-            <div className="col-xs-12 col-md-6 text-right">
-              <SuccessButton
-                disabled={isFetching}
-                loading={false}
-                title="New Order"
-                onClick={() => history.push('/orders/create')}
               />
             </div>
           </div>
@@ -124,6 +130,7 @@ class OrdersIndexContainer extends Component {
   }
 }
 
+
 OrdersIndexContainer.propTypes = {
   ordersIndex: OrdersIndexPropType.isRequired,
   performOrdersIndexAction: PropTypes.func.isRequired,
@@ -131,12 +138,15 @@ OrdersIndexContainer.propTypes = {
 
 OrdersIndexContainer.defaultProps = {};
 
+
 const mapStateToProps = state => ({
   ordersIndex: state.ordersIndex,
 });
 
+
 const mapDispatchToProps = () => ({
-  performOrdersIndexSearch,
+  performOrdersIndexAction,
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps())(OrdersIndexContainer);

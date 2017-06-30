@@ -57,7 +57,7 @@ export const performOrdersIndexSearch = (page = 1, searchTerm, customer_id) =>
   (dispatch) => {
     dispatch(requestOrdersIndexAction());
     const basePath = `/orders?page=${page}`;
-    const enhancedpath = searchTerm ? `${basePath}&searchTerm=${searchTerm}` : basePath;
+    const enhancedPath = searchTerm ? `${basePath}&searchTerm=${searchTerm}` : basePath;
     const path = customer_id ? `${enhancedPath}&customer_id=${customer_id}` : enhancedPath;
     get(path)
       .then((response) => {

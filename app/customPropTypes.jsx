@@ -7,14 +7,13 @@
  * application.
  */
 
-
 // Module imports
 import PropTypes from 'prop-types';
 
 export const ErrorPropType = PropTypes.shape({
-  message: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  status: PropTypes.number.isRequired,
+  message: PropTypes.string,
+  name: PropTypes.string,
+  status: PropTypes.number,
 });
 
 export const CustomersCreatePropType = PropTypes.shape({
@@ -27,7 +26,6 @@ export const LoginPropType = PropTypes.shape({
   error: ErrorPropType,
 });
 
-
 export const PaginationPropType = PropTypes.shape({
   total: PropTypes.number,
   limit: PropTypes.number,
@@ -37,7 +35,6 @@ export const PaginationPropType = PropTypes.shape({
   ]),
   pages: PropTypes.number,
 });
-
 
 export const CustomerPropType = PropTypes.shape({
   _id: PropTypes.string,
@@ -69,7 +66,6 @@ export const LocationPropType = PropTypes.shape({
   hash: PropTypes.string.isRequired,
 });
 
-
 export const MatchPropType = PropTypes.shape({
   isExact: PropTypes.bool.isRequired,
   params: PropTypes.any,
@@ -89,12 +85,10 @@ export const OrderPropType = PropTypes.shape({
   status: PropTypes.string,
 });
 
-
 export const OrdersCreatePropType = PropTypes.shape({
   isFetching: PropTypes.bool.isRequired,
   error: ErrorPropType,
 });
-
 
 export const OrdersIndexPropType = PropTypes.shape({
   isFetching: PropTypes.bool.isRequired,
@@ -103,13 +97,11 @@ export const OrdersIndexPropType = PropTypes.shape({
   pagination: PaginationPropType,
 });
 
-
 export const OrdersShowPropType = PropTypes.shape({
   isFetching: PropTypes.bool.isFetching,
   error: ErrorPropType,
   order: OrderPropType,
 });
-
 
 export const ReduxFormPropType = PropTypes.shape({
   registeredFields: PropTypes.any,
@@ -117,7 +109,6 @@ export const ReduxFormPropType = PropTypes.shape({
   values: PropTypes.any,
   syncErrors: PropTypes.any,
 });
-
 
 export const SignupPropType = PropTypes.shape({
   isFetching: PropTypes.bool.isRequired,
