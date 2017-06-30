@@ -18,6 +18,7 @@ import {
 
 // Component imports
 import CustomersContainer from './Customers/CustomersContainer';
+import OrdersContainer from './Orders/OrdersContainer';
 import notProtectedHOC from './common/hoc/notProtected';
 import protectedHOC from './common/hoc/protected';
 import UnauthenticatedContainer from './Unauthenticated/UnauthenticatedContainer';
@@ -50,6 +51,10 @@ export default class Routes extends Component {
             <Route
               path="/customers"
               component={protectedHOC(CustomersContainer)}
+            />
+           <Route
+              path="/orders"
+              component={protectedHOC(OrdersContainer)}
             />
             <Route
               path="/"
