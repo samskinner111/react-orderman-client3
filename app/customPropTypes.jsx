@@ -77,6 +77,39 @@ export const MatchPropType = PropTypes.shape({
   url: PropTypes.string.isRequired,
 });
 
+export const OrderPropType = PropTypes.shape({
+  _id: PropTypes.string,
+  createdAt: PropTypes.string,
+  updatedAt: PropTypes.string,
+  date: PropTypes.string,
+  description: PropTypes.string,
+  customer_id: PropTypes.any,
+  user_id: PropTypes.string,
+  __v: PropTypes.number,
+  status: PropTypes.string,
+});
+
+
+export const OrdersCreatePropType = PropTypes.shape({
+  isFetching: PropTypes.bool.isRequired,
+  error: ErrorPropType,
+});
+
+
+export const OrdersIndexPropType = PropTypes.shape({
+  isFetching: PropTypes.bool.isRequired,
+  error: ErrorPropType,
+  orders: PropTypes.arrayOf(OrderPropType),
+  pagination: PaginationPropType,
+});
+
+
+export const OrdersShowPropType = PropTypes.shape({
+  isFetching: PropTypes.bool.isFetching,
+  error: ErrorPropType,
+  order: OrderPropType,
+});
+
 
 export const ReduxFormPropType = PropTypes.shape({
   registeredFields: PropTypes.any,

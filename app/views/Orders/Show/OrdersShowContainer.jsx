@@ -29,6 +29,7 @@ import OrderDetailsForm from './components/OrderDetailsForm';
 
 // Actions imports
 import {
+  performDeleteOrder,
   performRetrieveOrder,
   performUpdateOrder,
 } from './actions/ordersShowActions';
@@ -124,10 +125,11 @@ class OrdersShowContainer extends Component {
 
 
 OrdersShowContainer.propTypes = {
-  ordersShow: OrdersShowPropType.isRequired,
   match: MatchPropType.isRequired,
+  ordersShow: OrdersShowPropType.isRequired,
   performRetrieveOrder: PropTypes.func.isRequired,
   performUpdateOrder: PropTypes.func.isRequired,
+  performDeleteOrder: PropTypes.func.isRequired,
   orderDetailsForm: ReduxFormPropType,
 };
 
